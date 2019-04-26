@@ -17,45 +17,45 @@ MainWindow::MainWindow(QWidget *parent) :
 
     saved = true;
     //界面
-    this->setWindowTitle(tr("学生信息管理系统"));
+    this->setWindowTitle(QString::fromLocal8Bit("学生信息管理系统"));
     //菜单
-    QMenu *file = menuBar()->addMenu(tr("&文件"));
+    QMenu *file = menuBar()->addMenu(QString::fromLocal8Bit("&文件"));
 
-    newAction = new QAction(tr("新建..."),this);
+    newAction = new QAction(QString::fromLocal8Bit("新建..."),this);
     connect(newAction,SIGNAL(triggered()),this,SLOT(newFile()));
     file->addAction(newAction);
 
-    openAction = new QAction(tr("打开..."),this);
-    //openAction->setStatusTip(tr("1234"));
+    openAction = new QAction(QString::fromLocal8Bit("打开..."),this);
+    //openAction->setStatusTip(QString::fromLocal8Bit("1234"));
     connect(openAction,SIGNAL(triggered()),this,SLOT(openFile()));
     file->addAction(openAction);
 
-    saveAction = new QAction(tr("保存..."),this);
+    saveAction = new QAction(QString::fromLocal8Bit("保存..."),this);
     connect(saveAction,SIGNAL(triggered()),this,SLOT(saveFile()));
     file->addAction(saveAction);
 
-    QMenu *modify = menuBar()->addMenu(tr("&编辑"));
-    addAction = new QAction(tr("增加一行"),this);
+    QMenu *modify = menuBar()->addMenu(QString::fromLocal8Bit("&编辑"));
+    addAction = new QAction(QString::fromLocal8Bit("增加一行"),this);
     connect(addAction,SIGNAL(triggered()),this,SLOT(addModify()));
     modify->addAction(addAction);
 
-    QAction*insertUp = new QAction(tr("上方插入一行"),this);
+    QAction*insertUp = new QAction(QString::fromLocal8Bit("上方插入一行"),this);
     connect(insertUp,SIGNAL(triggered()),this,SLOT(insertBefore()));
     modify->addAction(insertUp);
 
-    QAction*insertDown = new QAction(tr("下方插入一行"),this);
+    QAction*insertDown = new QAction(QString::fromLocal8Bit("下方插入一行"),this);
     connect(insertDown,SIGNAL(triggered()),this,SLOT(insertAfter()));
     modify->addAction(insertDown);
 
-    moveUpAction = new QAction(tr("上移一行"),this);
+    moveUpAction = new QAction(QString::fromLocal8Bit("上移一行"),this);
     connect(moveUpAction,SIGNAL(triggered()),this,SLOT(moveUpModify()));
     modify->addAction(moveUpAction);
 
-    moveDownAction = new QAction(tr("下移一行"),this);
+    moveDownAction = new QAction(QString::fromLocal8Bit("下移一行"),this);
     connect(moveDownAction,SIGNAL(triggered()),this,SLOT(moveDownModify()));
     modify->addAction(moveDownAction);
 
-    deleteAction = new QAction(tr("删除"),this);
+    deleteAction = new QAction(QString::fromLocal8Bit("删除"),this);
     connect(deleteAction,SIGNAL(triggered()),this,SLOT(deleteModify()));
     modify->addAction(deleteAction);
 
@@ -63,31 +63,31 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
 
-    //QMenu *exit = menuBar()->addMenu(tr("&退出"));
+    //QMenu *exit = menuBar()->addMenu(QString::fromLocal8Bit("&退出"));
     //connect(exit,SIGNAL(triggered()),this,SLOT(close()));
 
     /*
     //connect(button, &QPushButton::clicked, someFunction);
-    //QMenu *view = menuBar()->addMenu(tr("&查看"));
-    //sortAction = new QAction(tr("排序"),this);
+    //QMenu *view = menuBar()->addMenu(QString::fromLocal8Bit("&查看"));
+    //sortAction = new QAction(QString::fromLocal8Bit("排序"),this);
     //connect(sortAction,SIGNAL(triggered()),this,SLOT(sortView()));
     //view->addAction(sortAction);
 
-    searchAction = new QAction(tr("&搜索"),this);
+    searchAction = new QAction(QString::fromLocal8Bit("&搜索"),this);
     connect(searchAction,SIGNAL(triggered()),this,SLOT(searchView()));
     view->addAction(searchAction);
 */
 /*
-    QMenu *statistic = menuBar()->addMenu(tr("&统计"));
-    gradeAction = new QAction(tr("年级"));
+    QMenu *statistic = menuBar()->addMenu(QString::fromLocal8Bit("&统计"));
+    gradeAction = new QAction(QString::fromLocal8Bit("年级"));
     connect(gradeAction,SIGNAL(triggered()),this,SLOT(gradeStatistic()));
     statistic->addAction(gradeAction);
 
-    majorAction = new QAction(tr("专业"));
+    majorAction = new QAction(QString::fromLocal8Bit("专业"));
     connect(majorAction,SIGNAL(triggered()),this,SLOT(majorStatistic()));
     statistic->addAction(majorAction);
 
-    gpaAction = new QAction(tr("GPA"));
+    gpaAction = new QAction(QString::fromLocal8Bit("GPA"));
     connect(gpaAction,SIGNAL(triggered()),this,SLOT(gpaStatistic()));
     statistic->addAction(gpaAction);
 */
@@ -111,7 +111,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(table,SIGNAL(cellChanged(int,int)),this,SLOT(tableModify(int,int)));
 
     QStringList header;
-    header<<tr("姓名")<<tr("性别")<<tr("学号")<<tr("年级")<<tr("专业方向")<<tr("出生日期(年-月-日)")<<(tr("籍贯"))<<(tr("住址"));
+    header<<QString::fromLocal8Bit("姓名")<<QString::fromLocal8Bit("性别")<<QString::fromLocal8Bit("学号")<<QString::fromLocal8Bit("年级")<<QString::fromLocal8Bit("专业方向")<<QString::fromLocal8Bit("出生日期(年-月-日)")<<(QString::fromLocal8Bit("籍贯"))<<(QString::fromLocal8Bit("住址"));
     //table->horizontalHeader()->setDefaultSectionSize(15);
     connect(table->horizontalHeader(),SIGNAL(sectionClicked(int)),this, SLOT(sortView(int)));
     table->setHorizontalHeaderLabels(header);
@@ -123,7 +123,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     widget->setLayout(layout);
     //工具栏搜索：支持姓名、id两种精确搜索
-    //QToolBar *toolBar = addToolBar(tr("&搜索"));
+    //QToolBar *toolBar = addToolBar(QString::fromLocal8Bit("&搜索"));
     //toolBar->addAction(searchAction);
     //layout->addWidget(toolBar);
     //工具栏搜索：支持专业、GPA、年龄三种模糊搜索
@@ -154,13 +154,13 @@ MainWindow::MainWindow(QWidget *parent) :
     searchColumn = -1;
     searchQLineEditToolBar = new QLineEdit;
     /*
-    searchToolBar = new QAction(tr("&搜索"),this);
-    lastToolBar = new QAction(tr("&上一个"),this);
-    nextToolBar = new QAction(tr("&下一个"),this);
+    searchToolBar = new QAction(QString::fromLocal8Bit("&搜索"),this);
+    lastToolBar = new QAction(QString::fromLocal8Bit("&上一个"),this);
+    nextToolBar = new QAction(QString::fromLocal8Bit("&下一个"),this);
     */
-    searchButton = new QPushButton(tr("&搜索"));
-    lastButton = new QPushButton(tr("&上一个"));;
-    nextButton = new QPushButton(tr("&下一个"
+    searchButton = new QPushButton(QString::fromLocal8Bit("&搜索"));
+    lastButton = new QPushButton(QString::fromLocal8Bit("&上一个"));;
+    nextButton = new QPushButton(QString::fromLocal8Bit("&下一个"
                                     ""));;
 
     //ui->mainToolBar->setVisible(false);
@@ -175,8 +175,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(nextButton,SIGNAL(clicked()),this,SLOT(nextToolBarTriggered()));
 
 
-    //ui->mainToolBar->addAction(new QAction(tr("&完成"),this));
-    //ui->mainToolBar->addWidget(QPushButton(tr("&搜索")))
+    //ui->mainToolBar->addAction(new QAction(QString::fromLocal8Bit("&完成"),this));
+    //ui->mainToolBar->addWidget(QPushButton(QString::fromLocal8Bit("&搜索")))
 
 }
 
@@ -195,7 +195,7 @@ void MainWindow::tableInitialize(){
     connect(table,SIGNAL(cellChanged(int,int)),this,SLOT(tableModify(int,int)));
 
     QStringList header;
-    header<<tr("姓名")<<tr("性别")<<tr("学号")<<tr("年级")<<tr("专业方向")<<tr("出生日期(年-月-日)")<<(tr("籍贯"))<<(tr("住址"));//<<tr("GPA");
+    header<<QString::fromLocal8Bit("姓名")<<QString::fromLocal8Bit("性别")<<QString::fromLocal8Bit("学号")<<QString::fromLocal8Bit("年级")<<QString::fromLocal8Bit("专业方向")<<QString::fromLocal8Bit("出生日期(年-月-日)")<<(QString::fromLocal8Bit("籍贯"))<<(QString::fromLocal8Bit("住址"));//<<QString::fromLocal8Bit("GPA");
     //connect(table->horizontalHeader(),SIGNAL(sectionClicked(int)),this, SLOT(sortView(int)));
     connect(table->horizontalHeader(),SIGNAL(sectionDoubleClicked(int)),this, SLOT(sortView(int)));
     //table->horizontalHeader()->setDefaultSectionSize(15);
@@ -214,9 +214,9 @@ void MainWindow::newFile(){
     if(table->rowCount()>0&&!saved){
         QMessageBox msgBox;
         msgBox.setWindowTitle("请注意！");
-        msgBox.setText(tr("文件尚未保存！"));
-        msgBox.setInformativeText(tr("是否保存文件？"));
-        //msgBox.setDetailedText(tr("Differences here..."));
+        msgBox.setText(QString::fromLocal8Bit("文件尚未保存！"));
+        msgBox.setInformativeText(QString::fromLocal8Bit("是否保存文件？"));
+        //msgBox.setDetailedText(QString::fromLocal8Bit("Differences here..."));
         msgBox.setStandardButtons(QMessageBox::Save
                                   | QMessageBox::Discard
                                   | QMessageBox::Cancel);
@@ -248,9 +248,9 @@ void MainWindow::openFile(){
     if(table->rowCount()>0&&!saved){
         QMessageBox msgBox;
         msgBox.setWindowTitle("请注意！");
-        msgBox.setText(tr("文件尚未保存！"));
-        msgBox.setInformativeText(tr("是否保存文件？"));
-        //msgBox.setDetailedText(tr("Differences here..."));
+        msgBox.setText(QString::fromLocal8Bit("文件尚未保存！"));
+        msgBox.setInformativeText(QString::fromLocal8Bit("是否保存文件？"));
+        //msgBox.setDetailedText(QString::fromLocal8Bit("Differences here..."));
         msgBox.setStandardButtons(QMessageBox::Save
                                   | QMessageBox::Discard
                                   | QMessageBox::Cancel);
@@ -275,14 +275,14 @@ void MainWindow::openFile(){
     }
 
     QString path = QFileDialog::getOpenFileName(this,
-                                                tr("Open File"),
+                                                QString::fromLocal8Bit("Open File"),
                                                 ".",
-                                                tr("Text Files(*.csv)"));
+                                                QString::fromLocal8Bit("Text Files(*.csv)"));
     if(!path.isEmpty()) {
         QFile file(path);
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            QMessageBox::warning(this, tr("Read File"),
-                                 tr("Cannot open file:\n%1").arg(path));
+            QMessageBox::warning(this, QString::fromLocal8Bit("Read File"),
+                                 QString::fromLocal8Bit("Cannot open file:\n%1").arg(path));
             return;
         }
         QTextStream in(&file);
@@ -305,21 +305,21 @@ void MainWindow::openFile(){
         file.close();
         saved = true;
     } /*else {
-        QMessageBox::warning(this, tr("Path"),
-                             tr("You did not select any file."));
+        QMessageBox::warning(this, QString::fromLocal8Bit("Path"),
+                             QString::fromLocal8Bit("You did not select any file."));
     }*/
 }
 void MainWindow::saveFile(){
     qDebug()<<"saveFile";
     QString path = QFileDialog::getSaveFileName(this,
-                                                    tr("Open File"),
+                                                    QString::fromLocal8Bit("Open File"),
                                                     ".",
-                                                    tr("Text Files(*.csv)"));
+                                                    QString::fromLocal8Bit("Text Files(*.csv)"));
         if(!path.isEmpty()) {
             QFile file(path);
             if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-                QMessageBox::warning(this, tr("Write File"),
-                                           tr("Cannot open file:\n%1").arg(path));
+                QMessageBox::warning(this, QString::fromLocal8Bit("Write File"),
+                                           QString::fromLocal8Bit("Cannot open file:\n%1").arg(path));
                 return;
             }
             QTextStream out(&file);
@@ -330,8 +330,8 @@ void MainWindow::saveFile(){
                     //out << table->item(i,j)->text().toStdString().data();
                     //
                     if(table->item(i,j)!=NULL){
-                        out << table->item(i,j)->text();//.toStdString().c_str();
-                        qDebug()<<table->item(i,j)->text();//.toStdString().c_str();
+                        out << table->item(i,j)->text();//.toStdString().c_sQString::fromLocal8Bit();
+                        qDebug()<<table->item(i,j)->text();//.toStdString().c_sQString::fromLocal8Bit();
                     }
                     else
                         out << itemEmpty;
@@ -346,8 +346,8 @@ void MainWindow::saveFile(){
             file.close();
             saved = true;
         } else {
-            QMessageBox::warning(this, tr("请注意！"),
-                                 tr("文件未保存！"));
+            QMessageBox::warning(this, QString::fromLocal8Bit("请注意！"),
+                                 QString::fromLocal8Bit("文件未保存！"));
         }
         qDebug()<<"over!";
 }
@@ -504,23 +504,23 @@ void MainWindow::contextMenuEvent(QContextMenuEvent *event){
             &&(event->pos().y()<(table->pos().y()+ table->horizontalHeader()->height()*2+table->rowHeight(0)*table->rowCount() + ui->mainToolBar->height()))){
         QMenu *menu = new QMenu(this);
 
-        QAction *moveUp = new QAction(tr("&上移一行"));
+        QAction *moveUp = new QAction(QString::fromLocal8Bit("&上移一行"), this);
         menu->addAction(moveUp);
         connect(moveUp,SIGNAL(triggered()),this,SLOT(moveUpModify()));
 
-        QAction *moveDown = new QAction(tr("&下移一行"));
+        QAction *moveDown = new QAction(QString::fromLocal8Bit("&下移一行"), this);
         menu->addAction(moveDown);
         connect(moveDown,SIGNAL(triggered()),this,SLOT(moveDownModify()));
 
-        QAction *insertBefore = new QAction(tr("&上方插入"));
+        QAction *insertBefore = new QAction(QString::fromLocal8Bit("&上方插入"), this);
         menu->addAction(insertBefore);
         connect(insertBefore,SIGNAL(triggered()),this,SLOT(insertBefore()));
 
-        QAction *insertAfter = new QAction(tr("&下方插入"));
+        QAction *insertAfter = new QAction(QString::fromLocal8Bit("&下方插入"), this);
         menu->addAction(insertAfter);
         connect(insertAfter,SIGNAL(triggered()),this,SLOT(insertAfter()));
 
-        QAction *deleteLine = new QAction(tr("&删除该行"));
+        QAction *deleteLine = new QAction(QString::fromLocal8Bit("&删除该行"), this);
         menu->addAction(deleteLine);
         connect(deleteLine,SIGNAL(triggered()),this,SLOT(deleteLine()));
 
@@ -579,7 +579,7 @@ void MainWindow::searchToolBarTriggered(){
             }
         }
     }
-    QMessageBox::about(NULL, tr("抱歉！"), tr("未找到！请更换关键词！"));
+    QMessageBox::about(NULL, QString::fromLocal8Bit("抱歉！"), QString::fromLocal8Bit("未找到！请更换关键词！"));
 }
 
 
@@ -604,7 +604,7 @@ void MainWindow::nextToolBarTriggered(){
              }
          }
      }
-     QMessageBox::about(NULL, tr("抱歉！"), tr("没有下一个了！"));
+     QMessageBox::about(NULL, QString::fromLocal8Bit("抱歉！"), QString::fromLocal8Bit("没有下一个了！"));
 
 }
 
@@ -626,13 +626,13 @@ void MainWindow::lastToolBarTriggered(){
              }
          }
      }
-     QMessageBox::about(NULL, tr("抱歉！"), tr("没有上一个了！"));
+     QMessageBox::about(NULL, QString::fromLocal8Bit("抱歉！"), QString::fromLocal8Bit("没有上一个了！"));
      /*
      QDialog *d = new QDialog(this);
      d->setWindowTitle("");
      //d->setWindowFlags(Qt::WindowCloseButtonHint);
      //d->setWindowFlags(Qt::WindowCloseButtonHint | Qt::MSWindowsFixedSizeDialogHint);
-     QLabel *q = new QLabel(tr("没有下一个了！"));
+     QLabel *q = new QLabel(QString::fromLocal8Bit("没有下一个了！"));
      QHBoxLayout * qh = new QHBoxLayout;
      qh->addWidget(q);
      d->setLayout(qh);
@@ -648,10 +648,10 @@ void MainWindow::lastToolBarTriggered(){
 void MainWindow::closeEvent(QCloseEvent *event){
     if(table->rowCount()>0&&!saved){
         QMessageBox msgBox;
-        msgBox.setWindowTitle("请注意！");
-        msgBox.setText(tr("文件尚未保存！"));
-        msgBox.setInformativeText(tr("是否保存文件？"));
-        //msgBox.setDetailedText(tr("Differences here..."));
+        msgBox.setWindowTitle(QString::fromLocal8Bit("请注意！"));
+        msgBox.setText(QString::fromLocal8Bit("文件尚未保存！"));
+        msgBox.setInformativeText(QString::fromLocal8Bit("是否保存文件？"));
+        //msgBox.setDetailedText(QString::fromLocal8Bit("Differences here..."));
         msgBox.setStandardButtons(QMessageBox::Save
                                   | QMessageBox::Discard
                                   | QMessageBox::Cancel);

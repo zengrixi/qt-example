@@ -24,6 +24,7 @@ bool studentDatabase::addStudent(student stu){
 //bool studentDatabase::addStudent(student stu);
 bool studentDatabase::deleteStudent(int index){
     stu.erase(stu.begin()+index);
+    return 0;
 }
 
 bool studentDatabase::deleteStudent(student stu){
@@ -61,6 +62,7 @@ const int studentDatabase::findStudent(int id){
 
 bool studentDatabase::clear(){
     stu.clear();
+    return true;
 }
 
 bool sortCmp(student s1, student s2){
