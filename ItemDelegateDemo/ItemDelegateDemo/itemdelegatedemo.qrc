@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/ItemDelegateDemo">
+        <file>Resources/editicon.png</file>
+        <file>Resources/tiparrow.png</file>
+        <file>Resources/tiprect.png</file>
+        <file>Resources/queryico.png</file>
+        <file>Resources/xiala.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ItemDelegateDemoClass</class>
+ <widget class="QWidget" name="ItemDelegateDemoClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ItemDelegateDemo</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="styleSheet">
+      <string notr="true">QTableView{
+	border-radius:4px;
+	gridline-color:#eeeeee;
+	border:1px solid #eeeeee;
+	background-color:#ffffff;
+}
+
+QTableView::item{
+	font-size: 14px;
+	color: #666666;
+	border-color:transparent;
+}
+
+QTableView::item:selected{
+	background-color:#ECF7FF;
+	color:#666666;
+}
+
+QHeaderView::section {    
+    color: #333333;  
+	height:38px;
+    font-size:12px;  
+    background-color: #f8f8f8;  
+    border:1px solid #eeeeee;  
+    border-left:none;  
+}  
+
+QHeaderView::section:first   
+{  
+    border-left:1px solid #eeeeee;  
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>40</number>
+     </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="itemdelegatedemo.qrc"/>
+ </resources>
+ <connections/>
+</ui>
