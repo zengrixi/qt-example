@@ -131,18 +131,18 @@ void TDMSummaryTableWgt::initFrozenFrame()
     m_frozenTableWgt->setSpan(0, 7, 1, 2);//前一日（8月19）
     m_frozenTableWgt->setSpan(0, 9, 2, 1);//操作
 
-    m_frozenTableWgt->setItem(0, 0, new QTableWidgetItem("老师ID"));
-    m_frozenTableWgt->setItem(0, 1, new QTableWidgetItem("老师姓名"));
-    m_frozenTableWgt->setItem(0, 2, new QTableWidgetItem("老师姓名"));
-    m_frozenTableWgt->setItem(0, 3, new QTableWidgetItem("8月20日"));
-    m_frozenTableWgt->setItem(0, 7, new QTableWidgetItem("8月19日"));
-    m_frozenTableWgt->setItem(0, 9, new QTableWidgetItem("操作"));
-    m_frozenTableWgt->setItem(1, 3, new QTableWidgetItem("续报率"));
-    m_frozenTableWgt->setItem(1, 4, new QTableWidgetItem("新学员续报率"));
-    m_frozenTableWgt->setItem(1, 5, new QTableWidgetItem("续报增长人数"));
-    m_frozenTableWgt->setItem(1, 6, new QTableWidgetItem("续报增长率"));
-    m_frozenTableWgt->setItem(1, 7, new QTableWidgetItem("续报增长率"));
-    m_frozenTableWgt->setItem(1, 8, new QTableWidgetItem("新学员续报率"));
+    m_frozenTableWgt->setItem(0, 0, new QTableWidgetItem(QString::fromLocal8Bit("老师ID")));
+    m_frozenTableWgt->setItem(0, 1, new QTableWidgetItem(QString::fromLocal8Bit("老师姓名")));
+    m_frozenTableWgt->setItem(0, 2, new QTableWidgetItem(QString::fromLocal8Bit("老师姓名")));
+    m_frozenTableWgt->setItem(0, 3, new QTableWidgetItem(QString::fromLocal8Bit("8月20日")));
+    m_frozenTableWgt->setItem(0, 7, new QTableWidgetItem(QString::fromLocal8Bit("8月19日")));
+    m_frozenTableWgt->setItem(0, 9, new QTableWidgetItem(QString::fromLocal8Bit("操作")));
+    m_frozenTableWgt->setItem(1, 3, new QTableWidgetItem(QString::fromLocal8Bit("续报率")));
+    m_frozenTableWgt->setItem(1, 4, new QTableWidgetItem(QString::fromLocal8Bit("新学员续报率")));
+    m_frozenTableWgt->setItem(1, 5, new QTableWidgetItem(QString::fromLocal8Bit("续报增长人数")));
+    m_frozenTableWgt->setItem(1, 6, new QTableWidgetItem(QString::fromLocal8Bit("续报增长率")));
+    m_frozenTableWgt->setItem(1, 7, new QTableWidgetItem(QString::fromLocal8Bit("续报增长率")));
+    m_frozenTableWgt->setItem(1, 8, new QTableWidgetItem(QString::fromLocal8Bit("新学员续报率")));
 
     //连接信号槽。用于滚动条联动
     connect(m_frozenTableWgt->verticalScrollBar(), &QAbstractSlider::valueChanged,
